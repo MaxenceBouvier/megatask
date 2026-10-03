@@ -1,0 +1,8 @@
+{
+  "name": "megatask",
+  "version": "1.0.0",
+  "description": "Spec-driven workflow skills for Claude Code, including a tmux-based manager for multi-worker campaigns. Published as is, use at your own risk.",
+  "author": { "name": "Maxence Bouvier" },
+  "license": "MIT",
+  "keywords": ["orchestration", "workflow", "megatask", "tmux", "spec", "harness"]
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>megatask</title>
+<meta name="description" content="megatask is a workflow for running a long queue of coding tasks with agent sessions, and a set of Claude Code plugins that implement it.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+<h1>megatask</h1>
+<p>A queue of issues, a manager session, and workers that do the work.</p>
+</header>
+<main>
+<section id="what">
+<h2>What it is</h2>
+<p>megatask is a way to hand a coding agent a long list of tasks and come back to merged work. A manager session reads the queue, starts a worker session for each issue, checks what comes back, and merges it.</p>
+<p>It ships as two Claude Code plugins, plus the guide that explains why each rule is there.</p>
+</section>
+<section id="how">
+<h2>How it runs</h2>
+<ol class="steps">
+<li>The spec is reviewed four ways before anything is built, so vague or unsafe requirements are caught early.</li>
+<li>The plan is executed by subagents, one task at a time, each one checked against the spec.</li>
+<li>A manager session drives worker sessions through a queue of issues and merges each result as it passes.</li>
+</ol>
+</section>
+<section id="free">
+<h2>The free part</h2>
+<p>The plugins are open source under the MIT license. The code is on <a href="https://github.com/MaxenceBouvier/megatask">GitHub</a>. To install them in Claude Code:</p>
+<pre><code>claude plugin marketplace add MaxenceBouvier/megatask
+claude plugin install megatask@megatask
+claude plugin install megatask-roles@megatask</code></pre>
+</section>
+<section id="guide" data-state="before-payment">
+<h2>The guide</h2>
+<p>A PDF with chapters on how the workflow fits together and how to run it, and a skill that lets your own coding agent explain the workflow to you.</p>
+<p class="price">Price: pay what you want, from €1</p>
+<p class="soon">The guide is coming.</p>
+</section>
+<section id="status">
+<h2>Status</h2>
+<p class="note">Published as is. Use at your own risk, with no support. The workflow has not been run end to end in the form shipped here.</p>
+</section>
+</main>
+<footer id="footer">
+<p><span>Product by Optetron</span> <a href="legal.html">Legal</a> <span>Contact <a href="mailto:contact@optetron.com">contact@optetron.com</a></span> <span>MIT licensed</span></p>
+</footer>
+</body>
+</html>

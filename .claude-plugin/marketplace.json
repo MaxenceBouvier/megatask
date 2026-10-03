@@ -1,0 +1,10 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "megatask",
+  "description": "A spec-driven workflow for Claude Code: single-feature skills, a tmux-based manager that runs a queue of issues through worker sessions, and organizational role skills",
+  "owner": { "name": "Maxence Bouvier" },
+  "plugins": [
+    { "name": "megatask", "description": "Workflow skills: megatask campaign flow on plain tmux, manager, spec review command, harness setup, human-like writing", "source": "./plugins/megatask" },
+    { "name": "megatask-roles", "description": "Organizational role skills for multi-agent orchestration: CEO, CTO, PM, SWE, CMO, Legal, Sales, SecOps", "source": "./plugins/megatask-roles" }
+  ]
+}
