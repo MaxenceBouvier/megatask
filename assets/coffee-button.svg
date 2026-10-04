@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="48" viewBox="0 0 220 48" role="img" aria-labelledby="title">
+  <title id="title">Buy me a coffee</title>
+  <style>
+    :root { --surface: #17151f; --border: #514050; --accent: #ff2d83; --text: #f3f0f6; }
+    .surface { fill: var(--surface); stroke: var(--border); }
+    .icon { fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .label { fill: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; font-size: 15px; font-weight: 600; }
+  </style>
+  <rect class="surface" x=".5" y=".5" width="219" height="47" rx="12"/>
+  <g class="icon">
+    <path d="M21 21h15v8a6 6 0 0 1-6 6h-3a6 6 0 0 1-6-6z"/>
+    <path d="M36 22h2a4 4 0 0 1 0 8h-2M19 38h20M25 17v-4M31 17v-4"/>
+  </g>
+  <text class="label" x="54" y="29.5">Buy me a coffee</text>
+</svg>

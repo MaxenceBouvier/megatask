@@ -1,7 +1,7 @@
 # Coding CLI installation and runtime compatibility
 
-Megatask uses the Agent Skills format. The portable installer links all 17 skills,
-including the roles and a `review-spec` skill, without installing Claude hooks.
+Megatask uses the Agent Skills format. The portable installer links all 7 skills,
+including a portable `review-spec` skill, without installing Claude hooks.
 Python 3.8+ and directory symlinks are required. Keep the checkout at its installed
 location. Update it with `git pull`; links follow the checkout. On Windows use WSL
 for the tmux workflow.

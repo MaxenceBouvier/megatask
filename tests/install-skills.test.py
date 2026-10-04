@@ -22,7 +22,9 @@ class InstallerTests(unittest.TestCase):
             result = self.run_install('--target', target)
             self.assertEqual(result.returncode, 0, result.stderr)
         skills = self.home / '.agents/skills'
-        self.assertEqual(len(list(skills.iterdir())), 17)
+        self.assertEqual({p.name for p in skills.iterdir()}, {
+            'megatask', 'megatask-preparation', 'manager', 'finishing-a-megatask',
+            'troubleshoot-a-megatask', 'harness-setup', 'review-spec'})
         for path in skills.iterdir():
             self.assertTrue(path.is_symlink())
             self.assertIn('Maxence Bouvier', (path / 'LICENSE').read_text())

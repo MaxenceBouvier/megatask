@@ -1,8 +1,0 @@
-{
-  "name": "megatask-roles",
-  "version": "1.0.0",
-  "description": "Organizational role skills for multi-agent orchestration. Published as is, use at your own risk.",
-  "author": { "name": "Maxence Bouvier" },
-  "license": "MIT",
-  "keywords": ["orchestration", "workflow", "megatask", "roles", "multi-agent"]
-}

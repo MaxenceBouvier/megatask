@@ -23,7 +23,6 @@ megatask is a set of skills for running long, mostly unattended software work wi
 ```
 claude plugin marketplace add MaxenceBouvier/megatask
 claude plugin install megatask@megatask
-claude plugin install megatask-roles@megatask
 ```
 
 Restart Claude Code afterwards so the skills load.
@@ -46,7 +45,7 @@ python3 scripts/install-skills.py --target gemini
 
 Choose the shared install or a host-specific install, rather than both.
 In Codex use `/skills` or `$megatask-preparation`. In Gemini run `/skills reload`
-and ask it to activate `megatask-preparation`. All 17 skills include scripts,
+and ask it to activate `megatask-preparation`. All 7 skills include scripts,
 resources and author/license notices. The public repository is https://github.com/MaxenceBouvier/megatask.
 
 ### Other coding agents
@@ -59,7 +58,7 @@ Claude-specific hooks and the limits of current testing.
 
 ## Paid workflow guide
 
-[![Buy the workflow guide](https://img.shields.io/badge/Buy_the_workflow_guide-Optetron-ffdd00?style=for-the-badge)](https://optetron.com/en/megatask#guide)
+[![Buy the workflow guide](assets/guide-button.svg)](https://optetron.com/en/megatask#guide)
 
 The campaign walkthrough, setup guidance and explanations of the methodology
 are part of the paid companion guide, available through
@@ -80,26 +79,11 @@ Plugin `megatask`:
 | `finishing-a-megatask` | Integrates a merge-ready branch into a main that may have diverged or fail tests. |
 | `troubleshoot-a-megatask` | Diagnoses worker sessions that die, dependency drift and unverified precedence assumptions. |
 | `harness-setup` | Prepares a large or monorepo codebase for an agent: context, permissions, conventions. |
-| `human-like-writing` | Drafts prose that reads as written by a person. |
 | `/review-spec` | Command: reviews a spec with parallel subagents for quality, ambiguity and security; legal only with `--legal`. |
-
-Plugin `megatask-roles`:
-
-| Name | What it does |
-|---|---|
-| `role-ceo` | Sets direction, approves or rejects, breaks ties between roles. |
-| `role-cto` | Owns architecture, reviews plans and code, leads design specs. |
-| `role-pm` | Writes PRDs and specs, splits work, dispatches and reviews workers. |
-| `role-swe` | Implements an assigned task, with tests, inside its scope. |
-| `role-cmo` | Marketing strategy, content, brand voice and growth. |
-| `role-legal` | Contracts, compliance review and legal risk. |
-| `role-sales` | Prospecting, proposals and partnerships. |
-| `role-secops` | Security audits, dependency review and incident response. |
-| `coc-brainstorming` | Runs the chain of command: the CEO session launches a CTO, who writes a spec, then a PM who dispatches workers. |
 
 ## Support Megatask
 
-[![Buy me a coffee](https://img.shields.io/badge/Buy_me_a_coffee-Support_Megatask-ffdd00?style=for-the-badge)](https://optetron.com/en/megatask#guide)
+[![Buy me a coffee](assets/coffee-button.svg)](https://optetron.com/en/megatask#guide)
 
 The button opens the Megatask payment section on Optetron. Coffee support will
 use our payment kit when checkout is available; payments are not live yet.
