@@ -98,6 +98,13 @@ Plugin `megatask-roles`:
 | `role-secops` | Security audits, dependency review and incident response. |
 | `coc-brainstorming` | Runs the chain of command: the CEO session launches a CTO, who writes a spec, then a PM who dispatches workers. |
 
+## Support Megatask
+
+[![Buy me a coffee](https://img.shields.io/badge/Buy_me_a_coffee-Support_Megatask-ffdd00?style=for-the-badge)](https://optetron.com/en/megatask#guide)
+
+The button opens the Megatask payment section on Optetron. Coffee support will
+use our payment kit when checkout is available; payments are not live yet.
+
 ## Links
 
 - Site: https://optetron.com/en/megatask
