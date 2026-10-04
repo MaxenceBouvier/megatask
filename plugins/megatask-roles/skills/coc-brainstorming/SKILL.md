@@ -3,6 +3,10 @@ name: coc-brainstorming
 description: Use when a CEO session must kick off a full chain-of-command pipeline — launches CTO to brainstorm and write a design spec, then CTO launches PM to write implementation plan and dispatch parallel workers through tmux (`mt-worker.sh` of the `manager` skill)
 ---
 
+## Host compatibility
+
+On Codex, Gemini or another Agent Skills host, translate Claude-specific names to the available native tools: Skill → skill activation/read; AskUserQuestion → user question; Agent → native subagent. Resolve `megatask:<name>` and `megatask-roles:<name>` to the installed skill named `<name>`. Use that skill’s actual directory for bundled scripts. Never invent a missing tool or apply Claude model identifiers to another provider. If independent reviewers or persistent wake scheduling are unavailable, report the limitation and pause campaign launch until an equivalent mechanism is configured; read-only review lenses may run sequentially if labelled as non-independent. Claude plugin hooks are not installed by the portable installer. On other hosts, enforce the phase gates in these instructions explicitly. `harness-setup` settings and hooks are Claude-specific: do not write them into another CLI’s configuration.
+
 # Chain-of-Command Brainstorming
 
 ## Overview

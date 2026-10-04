@@ -24,6 +24,8 @@ If any required key is missing, the manager refuses to start the campaign and pr
 
 Optional keys with defaults: `worker.command` (default `claude --model {model} --permission-mode auto`), `reachability.notify_cmd` (default none), `reachability.escalation_channel` (`notify` or `off`).
 
+For Codex or Gemini workers, explicitly override `worker.command` (for example `codex --model {model}` or `gemini --model {model}`) and all model/subagent identifiers with native host values. The Opus defaults, `.claude/agents` validation and effort settings below are Claude-specific. Configure native permissions separately; do not copy Claude flags.
+
 ## Annotated example (multi-repo)
 
 ```markdown

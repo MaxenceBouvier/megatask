@@ -3,13 +3,17 @@ name: manager
 description: Use when starting a session that orchestrates other coding-agent sessions through tmux (the mt-worker.sh helper), especially long autonomous multi-worker runs where the manager must self-pace, gate phase transitions, merge ff-only, and escalate to the human only on pre-authorized triggers
 ---
 
+## Host compatibility
+
+On Codex, Gemini or another Agent Skills host, translate Claude-specific names to the available native tools: Skill → skill activation/read; AskUserQuestion → user question; Agent → native subagent. Resolve `megatask:<name>` and `megatask-roles:<name>` to the installed skill named `<name>`. Use that skill’s actual directory for bundled scripts. Never invent a missing tool or apply Claude model identifiers to another provider. If independent reviewers or persistent wake scheduling are unavailable, report the limitation and pause campaign launch until an equivalent mechanism is configured; read-only review lenses may run sequentially if labelled as non-independent. Claude plugin hooks are not installed by the portable installer. On other hosts, enforce the phase gates in these instructions explicitly. `harness-setup` settings and hooks are Claude-specific: do not write them into another CLI’s configuration.
+
 # Manager Session (autonomous-capable)
 
 > Published as is, with no support and no promise of updates. Use at your own risk. This skill was rewritten for this release to run on plain tmux and has not been run end to end in this form.
 
 ## Overview
 
-The current session orchestrates worker sessions through tmux, using the `mt-worker.sh` script that sits in this skill's `scripts/` directory. Claude Code prints this skill's base directory when the skill loads; call the script by its absolute path, for example `MT=<base directory>/scripts/mt-worker.sh`. The manager launches workers, watches them via a self-paced wake loop, gates phase transitions, merges completed branches, and escalates to the human only on pre-authorized triggers. It needs Claude Code for itself (`ScheduleWakeup`, `Agent`, `AskUserQuestion`, the `PreToolUse` hook) and tmux 3.0 or later.
+The current session orchestrates worker sessions through tmux, using the `mt-worker.sh` script that sits in this skill's `scripts/` directory. Claude Code prints this skill's base directory when the skill loads; call the script by its absolute path, for example `MT=<base directory>/scripts/mt-worker.sh`. The manager launches workers, watches them via a self-paced wake loop, gates phase transitions, merges completed branches, and escalates to the human only on pre-authorized triggers. The original manager runtime uses Claude Code (`ScheduleWakeup`, `Agent`, `AskUserQuestion`, the `PreToolUse` hook) and tmux 3.0 or later. A different manager host requires equivalent persistent wake scheduling and native reviewer tools before campaign launch; installation alone does not provide them. The launch-dialog keystrokes, `/effort` commands and permission-mode assertions below apply only to Claude workers. For other workers inspect their native ready state, use their configured permissions, and escalate unfamiliar dialogs rather than accepting them with Claude keystrokes.
 
 **Autonomy ≠ lower bar.** Autonomy reduces *user interrupts*; it does not lower the *evidence bar*. The anti-rubber-stamp rules below still fire on every claim. Workers exploit "fully autonomous" framing to ship patchy work fast — the manager refuses that pressure.
 

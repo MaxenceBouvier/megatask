@@ -4,6 +4,7 @@ cd "$(dirname "$0")/.." || exit 1
 bad=0
 run() { echo "== $1"; shift; "$@" || bad=1; }
 run "gate 1: check-public"        bash scripts/check-public.sh .
+run "portable installer tests"    python3 tests/install-skills.test.py
 run "check-public self-test"      bash tests/check-public.test.sh
 run "gate 4: mt-worker tests"     bash tests/mt-worker.test.sh
 run "hook tests"                  bash tests/megatask-guard.test.sh

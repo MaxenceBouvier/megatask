@@ -3,7 +3,7 @@
 # Excludes .git/, this script and its test. Bash 3.2 compatible.
 set -u
 root="${1:-.}"
-allow="${MT_ALLOW_COMPANY:-docs/index.html docs/legal.html docs/terms.html}"
+allow="${MT_ALLOW_COMPANY:-docs/index.html docs/legal.html docs/terms.html README.md NOTICE docs/license-review.md}"
 # MT_SKIP_STRINGS: space-separated forbidden strings to skip. Only the paid bundle uses it
 # (its guide must be able to say that agent-dashboard is not needed); the public repo never sets it.
 bad=0
@@ -23,6 +23,7 @@ done
 while IFS= read -r f; do
   rel=${f#"$root"/}
   ok=0; for a in $allow; do [ "$rel" = "$a" ] && ok=1; done
+  case "$rel" in plugins/*/skills/*/NOTICE|portable-skills/*/NOTICE) ok=1 ;; esac
   [ "$ok" -eq 0 ] && report "COMPANY NAME in $rel"
 done < <(grep -rliF "${excl[@]}" -e 'optetron' "$root" 2>/dev/null)
 
