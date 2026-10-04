@@ -59,6 +59,8 @@ Claude-specific hooks and the limits of current testing.
 
 ## Paid workflow guide
 
+[![Buy the workflow guide](https://img.shields.io/badge/Buy_the_workflow_guide-Optetron-ffdd00?style=for-the-badge)](https://optetron.com/en/megatask#guide)
+
 The campaign walkthrough, setup guidance and explanations of the methodology
 are part of the paid companion guide, available through
 [Optetron](https://optetron.com/en/megatask#guide) when checkout launches.
