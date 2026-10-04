@@ -57,17 +57,14 @@ The installer refuses conflicts and supports `--dry-run` and `--uninstall`.
 See [CLI compatibility](docs/cli-compatibility.md) for runtime configuration,
 Claude-specific hooks and the limits of current testing.
 
-## The workflow
+## Paid workflow guide
 
-1. Run `megatask-preparation` to check the setup, or with `--brainstorm` to design a campaign from scratch: spec, issues, config.
-2. Review the spec once with `/review-spec`.
-3. Start `/megatask`. The manager session reads the config and the issue queue.
-4. For each issue the manager creates a worktree and starts a worker in its own tmux session.
-5. The manager wakes on a timer, reads each worker's pane, and answers questions or dialogs.
-6. A phase moves forward only when the worker shows evidence: commands run, output seen, tests that failed before the fix.
-7. Finished branches are merged fast-forward only. Anything else goes to the human.
-8. You can watch any worker read-only with `tmux -L megatask attach -r -t mt-<name>`.
-9. `finishing-a-megatask` integrates the result into a main branch you do not fully trust.
+The campaign walkthrough, setup guidance and explanations of the methodology
+are part of the paid companion guide, available through
+[Optetron](https://optetron.com/en/megatask#guide) when checkout launches.
+
+The skills in this repository remain free under the MIT license. The paid guide
+is a separate product and is not included in this repository.
 
 ## Skills
 
