@@ -1,21 +1,24 @@
 # License and attribution review
 
-Reviewed 2026-10-04. This is a repository license review, not a legal opinion
-on ownership, enforceability or a particular dispute.
+Reviewed 2026-10-04, updated 2026-10-08 when the rights holder became Optetron SAS.
+This is a repository license review, not a legal opinion on ownership,
+enforceability or a particular dispute.
 
 ## Current license and credit
 
 Megatask uses the unmodified MIT license, with
-`Copyright (c) 2026 Maxence Bouvier`. The README and NOTICE identify the original
-creator as Maxence Bouvier at Optetron. Each installable skill includes the full
-MIT LICENSE and NOTICE, so individual redistribution carries the author credit.
+`Copyright (c) 2026 Optetron SAS`. The README and NOTICE name Optetron as the
+creator and rights holder. Each installable skill includes the full MIT LICENSE
+and NOTICE, so individual redistribution carries the same notice. Copies received
+before 2026-10-08 carry the earlier notice in the author's own name; MIT
+permissions already granted under it stay valid.
 
 MIT requires the copyright and permission notices in copies or substantial
 portions of the software. Removing the required notice from a substantial
 redistribution fails that condition. MIT permits commercial use, modification,
 redistribution and sale; it does not require a public badge, website footer,
 advertising credit, or credit in software merely generated using the skills.
-NOTICE describes the author; its suggested public acknowledgement is optional.
+NOTICE names the rights holder; its suggested public acknowledgement is optional.
 No additional license restriction has been silently added.
 
 ## Superpowers comparison
@@ -38,16 +41,16 @@ A license change cannot revoke permissions for copies already received under MIT
 ## Ownership points requiring confirmation
 
 A notice identifies the claimed copyright holder; it does not establish the
-chain of title. Confirm whether Maxence personally owns these materials or
-whether employment, an exclusive contract, commissioned work or an assignment
-gives economic rights to an employer/client/company. Original-creator credit and
-ownership of economic rights are distinct. Relevant contracts and IP assignments were not available for this review.
-No ownership conclusion is made here.
+chain of title. The author's economic rights pass to Optetron SAS through a
+written assignment (Code de la propriété intellectuelle, L131-2 and L131-3),
+drafted on 2026-10-08; until it is signed, the notice states an intended holder
+rather than a proven one. Credit as creator and ownership of economic rights are
+distinct. No ownership conclusion is made here.
 
 French intellectual-property law recognises the author's right to respect for
-their name, status and work (Article L121-1). That supports attribution rights,
-but does not establish a universal website-credit obligation under MIT. How it
-applies to these skill instructions depends on authorship and the circumstances.
+their name, status and work (Article L121-1). That moral right cannot be
+assigned; the author has chosen not to be named in this repository, which he may
+change. It does not create a universal website-credit obligation under MIT.
 
 ## Sources
 

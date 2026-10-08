@@ -1,11 +1,11 @@
 Megatask — Automated engineering. No steps skipped.
-Originally created by Maxence Bouvier at Optetron.
-Copyright (c) 2026 Maxence Bouvier
+Created by Optetron.
+Copyright (c) 2026 Optetron SAS
 
 Licensed under MIT; see LICENSE. Retain the copyright and permission
 notice in copies or substantial portions, including redistributed skills.
 Public acknowledgement is appreciated, but is not an extra license condition.
-Suggested credit: “Megatask, originally created by Maxence Bouvier at Optetron.”
+Suggested credit: “Megatask, by Optetron.”
 
 Megatask builds on the superpowers methodology by Jesse Vincent
 (https://github.com/obra/superpowers). Superpowers is a separate dependency;

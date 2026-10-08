@@ -3,7 +3,7 @@
   "name": "megatask",
   "description": "A spec-driven engineering workflow with a tmux-based manager and worker sessions",
   "owner": {
-    "name": "Maxence Bouvier"
+    "name": "Optetron SAS"
   },
   "plugins": [
     {

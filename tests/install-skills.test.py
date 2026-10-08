@@ -27,8 +27,8 @@ class InstallerTests(unittest.TestCase):
             'troubleshoot-a-megatask', 'harness-setup', 'review-spec'})
         for path in skills.iterdir():
             self.assertTrue(path.is_symlink())
-            self.assertIn('Maxence Bouvier', (path / 'LICENSE').read_text())
-            self.assertIn('Maxence Bouvier', (path / 'NOTICE').read_text())
+            self.assertEqual((ROOT / 'LICENSE').read_text(), (path / 'LICENSE').read_text())
+            self.assertEqual((ROOT / 'NOTICE').read_text(), (path / 'NOTICE').read_text())
             self.assertTrue((path / 'SKILL.md').exists())
         self.assertTrue((skills / 'manager/scripts/mt-worker.sh').exists())
     def test_gemini_native_path(self):

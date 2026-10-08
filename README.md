@@ -2,7 +2,7 @@
 
 **Automated engineering. No steps skipped.**
 
-Originally created by **Maxence Bouvier at Optetron**. Copyright © 2026 Maxence Bouvier.
+Created by **Optetron**. Copyright © 2026 Optetron SAS.
 
 megatask is a set of skills for running long, mostly unattended software work with a coding agent. One manager session writes a spec, splits it into issues, and launches worker sessions in tmux, one per git worktree. It gates every phase on evidence and merges finished branches itself.
 
