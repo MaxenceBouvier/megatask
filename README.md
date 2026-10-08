@@ -61,8 +61,8 @@ Claude-specific hooks and the limits of current testing.
 [![Buy the workflow guide](assets/guide-button.svg)](https://optetron.com/en/megatask#guide)
 
 The campaign walkthrough, setup guidance and explanations of the methodology
-are part of the paid companion guide, available through
-[Optetron](https://optetron.com/en/megatask#guide) when checkout launches.
+are part of the paid companion guide, on sale through
+[Optetron](https://optetron.com/en/megatask#guide): pay what you want, from €1.
 
 The skills in this repository remain free under the MIT license. The paid guide
 is a separate product and is not included in this repository.
@@ -83,15 +83,15 @@ Plugin `megatask`:
 
 ## Support Megatask
 
-[![Buy me a coffee](assets/coffee-button.svg)](https://optetron.com/en/megatask#guide)
+[![Buy me a coffee](assets/coffee-button.svg)](https://buy.stripe.com/28E3cv3mq7K3erx8YnbV602)
 
-The button opens the Megatask payment section on Optetron. Coffee support will
-use our payment kit when checkout is available; payments are not live yet.
+The button opens a Stripe payment page where you choose any amount from €1.
+It is a tip for the project: you receive nothing in return.
 
 ## Links
 
 - Site: https://optetron.com/en/megatask
-- The guide is a written guide and a skill that lets your own coding agent explain the workflow, available through the site once it is ready.
+- The guide is a written guide and a skill that lets your own coding agent explain the workflow, sold on the site.
 
 ## Credit
 
