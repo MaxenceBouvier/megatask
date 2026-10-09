@@ -9,7 +9,7 @@ On Codex, Gemini or another Agent Skills host, translate Claude-specific names t
 
 # Megatask — Autonomous Campaign Orchestrator
 
-> Use at your own risk. Published as is, with no support and no promise of updates. This skill was rewritten for this release to run on plain tmux and has not been run end to end in this form.
+> Use at your own risk. Published as is, with no support and no promise of updates. It has not been run end to end.
 
 > `mt-worker.sh` below means `$MT` as defined in the `manager` skill (its base directory plus `/scripts/mt-worker.sh`). Load that skill first.
 

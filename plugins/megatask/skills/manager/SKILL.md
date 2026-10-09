@@ -9,7 +9,7 @@ On Codex, Gemini or another Agent Skills host, translate Claude-specific names t
 
 # Manager Session (autonomous-capable)
 
-> Published as is, with no support and no promise of updates. Use at your own risk. This skill was rewritten for this release to run on plain tmux and has not been run end to end in this form.
+> Published as is, with no support and no promise of updates. Use at your own risk. It has not been run end to end.
 
 ## Overview
 

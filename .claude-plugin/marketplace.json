@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "megatask",
-      "description": "Workflow skills: megatask campaign flow on plain tmux, manager, spec review command and harness setup",
+      "description": "Workflow skills: megatask campaign flow on tmux, manager, spec review command and harness setup",
       "source": "./plugins/megatask"
     }
   ]

@@ -1,102 +1,120 @@
-# Megatask
+<h1 align="center">
+  <img src="assets/hero.svg" width="100%" alt="megatask">
+</h1>
 
-**Automated engineering. No steps skipped.**
+megatask is a set of skills that lets a coding agent work through a queue of issues while you are away.
+A manager session takes the issues one at a time. For each one it starts a worker session in tmux,
+on its own git worktree and branch, and takes it through eight phases, from the first questions
+to a fast-forward merge into main. A phase moves on only after the manager has checked the evidence:
+the commands that ran, their output, the tests. One pass through a queue is called a campaign.
+How long a campaign runs depends on how complex the task is.
 
-Created by **Optetron**. Copyright © 2026 Optetron SAS.
-
-megatask is a set of skills for running long, mostly unattended software work with a coding agent. One manager session writes a spec, splits it into issues, and launches worker sessions in tmux, one per git worktree. It gates every phase on evidence and merges finished branches itself.
-
-> Published as is, with no support and no promise of updates. The megatask campaign flow (`megatask`, `megatask-preparation`, `manager`) was rewritten for this release to run on plain tmux and has not been run end to end in this form. Use at your own risk. Built for and tested with Claude Code; workers are started by a configurable command, so other agentic coding CLIs can be tried, Codex and Gemini skill installation is supported by the portable installer; their campaign runtimes have not been tested end to end.
+> [!WARNING]
+> Published as is, with no support and no promise of updates. Use at your own risk.
+>
+> The campaign skills (`megatask`, `megatask-preparation`, `manager`) have not been run end to end.
+> Automated tests cover two of their parts, the tmux script and the Claude Code hook that enforces
+> the phase rules, but not a full campaign.
+>
+> A campaign merges each finished issue into your main branch and pushes it, without asking you first.
+> Run it only on a repository where that is acceptable.
 
 ## Requirements
 
-- An agentic coding CLI. Claude Code is the tested one.
-- tmux 3.0 or later.
-- git.
-- The [superpowers skills](https://github.com/obra/superpowers#installation), installed for your chosen CLI. For Claude: `claude plugin install superpowers@claude-plugins-official`
-- Python 3.8+ for the portable installer.
+| You need | For |
+|---|---|
+| Claude Code | Running a campaign. megatask is built for it. Codex and Gemini can install the skills, but no campaign has run on them. |
+| git | Everything. Each worker gets its own worktree. |
+| tmux 3.0 or later | Running a campaign. Each worker runs in its own tmux session. |
+| The [superpowers](https://github.com/obra/superpowers#installation) skills | Running a campaign. Workers use them to brainstorm, write specs and write plans. |
+| Python 3.8 or later | Installing on Codex, Gemini or another CLI. |
+| GitHub CLI (`gh`) | Only when your issues live on GitHub. Linear or a folder of issue files also work. |
 
 ## Install
 
-### Claude Code plugin
+### Claude Code
 
-```
+Run these in your terminal, then restart Claude Code so the skills load:
+
+```sh
+claude plugin install superpowers@claude-plugins-official   # skip if you already have it
 claude plugin marketplace add MaxenceBouvier/megatask
 claude plugin install megatask@megatask
 ```
 
-Restart Claude Code afterwards so the skills load.
+### Codex, Gemini and other CLIs
 
-### Codex and Gemini CLI
-
-Clone the public repository, then install:
+The installer symlinks the skills from a clone of this repository, so keep the clone where it is
+and update it with `git pull`. Install superpowers for your CLI first, following
+[its instructions](https://github.com/obra/superpowers#installation).
 
 ```sh
 git clone https://github.com/MaxenceBouvier/megatask.git
 cd megatask
-
-# Shared installation, discovered by both Codex and Gemini:
 python3 scripts/install-skills.py --target agents
-
-# Or install for just one host:
-python3 scripts/install-skills.py --target codex
-python3 scripts/install-skills.py --target gemini
 ```
 
-Choose the shared install or a host-specific install, rather than both.
-In Codex use `/skills` or `$megatask-preparation`. In Gemini run `/skills reload`
-and ask it to activate `megatask-preparation`. All 7 skills include scripts,
-resources and author/license notices. The public repository is https://github.com/MaxenceBouvier/megatask.
+This installs the seven skills listed under [Skills](#skills) into `~/.agents/skills`,
+where both Codex and Gemini find them. To install somewhere else, replace `--target agents` with:
 
-### Other coding agents
+| Option | Installs into | Found by |
+|---|---|---|
+| `--target gemini` | `~/.gemini/skills` | Gemini only |
+| `--project <path>` | `<path>/.agents/skills` | Codex and Gemini, in that project only |
+| `--skills-dir <dir>` | `<dir>` | Any other CLI that reads Agent Skills from that folder |
 
-Use `--project /path/to/project` for project scope or
-`--skills-dir /path/to/cli/skills` for a host with another Agent Skills directory.
-The installer refuses conflicts and supports `--dry-run` and `--uninstall`.
-See [CLI compatibility](docs/cli-compatibility.md) for runtime configuration,
-Claude-specific hooks and the limits of current testing.
+Add `--dry-run` to see what would change, or `--uninstall` to remove the links.
+The installer refuses to overwrite a skill it did not install.
 
-## Paid workflow guide
+The Claude Code hook that enforces the phase rules is not installed this way.
+On other CLIs, those rules hold only as long as the manager follows its instructions.
+
+To call a skill in Codex, run `/skills` or type `$megatask-preparation`.
+In Gemini, run `/skills reload`, then ask it to activate `megatask-preparation`.
+[CLI compatibility](docs/cli-compatibility.md) covers worker commands and permissions on each CLI.
+
+## Workflow guide
 
 [![Buy the workflow guide](assets/guide-button.svg)](https://optetron.com/en/megatask#guide)
 
-The campaign walkthrough, setup guidance and explanations of the methodology
-are part of the paid companion guide, on sale through
-[Optetron](https://optetron.com/en/megatask#guide): pay what you want, from €1.
+A PDF on how the workflow fits together and how to run a campaign, with a skill that lets your own
+coding agent explain the workflow to you. Pay what you want, from €1.
 
-The skills in this repository remain free under the MIT license. The paid guide
-is a separate product and is not included in this repository.
+The guide is a separate product. You do not need it to use the skills in this repository,
+which are free under the MIT license.
 
 ## Skills
 
-Plugin `megatask`:
+### Run a campaign
 
-| Name | What it does |
+| Skill | What it does |
 |---|---|
-| `megatask` | Runs a manager session that works through a queue of issues with sequential workers. |
-| `megatask-preparation` | Checks config, issues and repos before a campaign, or designs a new campaign with `--brainstorm`. |
-| `manager` | Orchestrates worker sessions through tmux with a wake loop, phase gates and an escalation matrix. Ships `mt-worker.sh`. |
-| `finishing-a-megatask` | Integrates a merge-ready branch into a main that may have diverged or fail tests. |
-| `troubleshoot-a-megatask` | Diagnoses worker sessions that die, dependency drift and unverified precedence assumptions. |
-| `harness-setup` | Prepares a large or monorepo codebase for an agent: context, permissions, conventions. |
-| `/review-spec` | Command: reviews a spec with parallel subagents for quality, ambiguity and security; legal only with `--legal`. |
+| `megatask-preparation` | Designs a campaign from an idea with `--brainstorm`, or checks an existing one before launch. |
+| `megatask` | Runs the campaign. The manager session works through the issue queue, one worker at a time. |
+| `manager` | The loop `megatask` runs on: starts and watches worker sessions, merges their branches, and decides when to ask you. Includes `mt-worker.sh`, the script it uses to drive tmux. |
 
-## Support Megatask
+### Use on their own
 
-[![Buy me a coffee](assets/coffee-button.svg)](https://buy.stripe.com/28E3cv3mq7K3erx8YnbV602)
+| Skill | What it does |
+|---|---|
+| `review-spec` | Has parallel reviewers check a spec for quality, ambiguity and security, and legal issues with `--legal`. In Claude Code it is the `/review-spec` command. |
+| `finishing-a-megatask` | Merges a finished branch into a main branch that has moved on, fails its tests or has uncommitted work. It sorts real regressions from failures that were already there. |
+| `troubleshoot-a-megatask` | Diagnoses a broken campaign, such as a worker session that keeps crashing, or installed dependency versions that differ from the lockfile. |
+| `harness-setup` | Prepares a large codebase or a monorepo for a coding agent: context files, permissions and conventions. |
 
-The button opens a Stripe payment page where you choose any amount from €1.
-It is a tip for the project: you receive nothing in return.
+## Support the developer
 
-## Links
+[![Support the skill suite developer](assets/support-button.svg)](https://buy.stripe.com/28E3cv3mq7K3erx8YnbV602)
 
-- Site: https://optetron.com/en/megatask
-- The guide is a written guide and a skill that lets your own coding agent explain the workflow, sold on the site.
+The button opens a Stripe page where you choose any amount from €1.
+It is a tip: you get nothing in return.
 
-## Credit
+## Credit and license
 
-megatask builds on the [superpowers](https://github.com/obra/superpowers) skills and copies none of them.
+megatask is made by [Optetron](https://optetron.com/en/megatask). It uses the
+[superpowers](https://github.com/obra/superpowers) skills by Jesse Vincent, which you install separately.
 
-## License
-
-MIT. See [LICENSE](LICENSE). Retain the copyright and permission notice in copies or substantial portions, including redistributed skills. See [NOTICE](NOTICE) for original-author credit and [the license review](docs/license-review.md) for the difference between notice retention and public attribution.
+MIT license. Copyright © 2026 Optetron SAS.
+Keep the copyright and license notice in copies, including any skill you redistribute.
+Public credit is welcome but not required.
+See [LICENSE](LICENSE), [NOTICE](NOTICE) and the [license review](docs/license-review.md).

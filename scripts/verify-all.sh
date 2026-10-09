@@ -15,5 +15,5 @@ for s in megatask megatask-preparation manager; do
   run "own-risk sentence in $s" grep -qi 'use at your own risk' "plugins/megatask/skills/$s/SKILL.md"
 done
 run "versions are 1.0.0" sh -c 'grep -q "\"version\": \"1.0.0\"" plugins/megatask/.claude-plugin/plugin.json'
-run "README status notice verbatim" grep -qF 'The megatask campaign flow (`megatask`, `megatask-preparation`, `manager`) was rewritten for this release to run on plain tmux and has not been run end to end in this form.' README.md
+run "README status notice verbatim" grep -qF 'The campaign skills (`megatask`, `megatask-preparation`, `manager`) have not been run end to end.' README.md
 [ "$bad" -eq 0 ] && echo "VERIFY ALL: PASS" || { echo "VERIFY ALL: FAILED"; exit 1; }

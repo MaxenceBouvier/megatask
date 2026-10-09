@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="280" viewBox="0 0 960 280" role="img" aria-labelledby="title desc">
+  <title id="title">megatask: automated engineering, no steps skipped</title>
+  <desc id="desc">A tmux window for the worker session mt-issue-4. Its status bar steps through the eight phases of an issue in order: interview, design, spec, review, plan, execute, accept, merge.</desc>
+  <style>
+    :root { --pane: #17151f; --rule: #514050; --paper: #f3f0f6; --muted: #b3a7bd; --bar: #ff2d83; }
+    text { font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace; }
+    .pane { fill: var(--pane); stroke: var(--rule); }
+    .mark { fill: var(--paper); font-size: 76px; font-weight: 700; letter-spacing: -1px; }
+    .tagline { fill: var(--muted); font-size: 22px; }
+    .bar { fill: var(--bar); }
+    .session { fill: var(--pane); font-size: 15px; font-weight: 700; }
+    .w rect { fill: var(--pane); fill-opacity: 0; animation-name: cell; }
+    .w text { fill: var(--pane); font-size: 13px; text-anchor: middle; animation-name: label; }
+    .w rect, .w text { animation-duration: 9.6s; animation-iteration-count: infinite; }
+    .w1 * { animation-delay: 1.2s; } .w2 * { animation-delay: 2.4s; } .w3 * { animation-delay: 3.6s; }
+    .w4 * { animation-delay: 4.8s; } .w5 * { animation-delay: 6s; } .w6 * { animation-delay: 7.2s; }
+    .w7 * { animation-delay: 8.4s; }
+    @keyframes cell { 0%, 12.4% { fill-opacity: 1; } 12.5%, 100% { fill-opacity: 0; } }
+    @keyframes label { 0%, 12.4% { fill: #f3f0f6; } 12.5%, 100% { fill: #17151f; } }
+    @media (prefers-reduced-motion: reduce) {
+      .w rect, .w text { animation: none; }
+      .w7 rect { fill-opacity: 1; }
+      .w7 text { fill: var(--paper); }
+    }
+  </style>
+  <defs>
+    <clipPath id="frame"><rect x=".5" y=".5" width="959" height="279" rx="14"/></clipPath>
+  </defs>
+  <rect class="pane" x=".5" y=".5" width="959" height="279" rx="14"/>
+  <text class="mark" x="52" y="122">megatask</text>
+  <text class="tagline" x="56" y="166">Automated engineering. No steps skipped.</text>
+  <g clip-path="url(#frame)">
+    <rect class="bar" x="0" y="232" width="960" height="48"/>
+  </g>
+  <text class="session" x="24" y="261">[mt-issue-4]</text>
+  <g class="w w0"><rect x="154" y="241" width="94" height="30" rx="4"/><text x="201" y="261">0:interview</text></g>
+  <g class="w w1"><rect x="252" y="241" width="94" height="30" rx="4"/><text x="299" y="261">1:design</text></g>
+  <g class="w w2"><rect x="350" y="241" width="94" height="30" rx="4"/><text x="397" y="261">2:spec</text></g>
+  <g class="w w3"><rect x="448" y="241" width="94" height="30" rx="4"/><text x="495" y="261">3:review</text></g>
+  <g class="w w4"><rect x="546" y="241" width="94" height="30" rx="4"/><text x="593" y="261">4:plan</text></g>
+  <g class="w w5"><rect x="644" y="241" width="94" height="30" rx="4"/><text x="691" y="261">5:execute</text></g>
+  <g class="w w6"><rect x="742" y="241" width="94" height="30" rx="4"/><text x="789" y="261">6:accept</text></g>
+  <g class="w w7"><rect x="840" y="241" width="94" height="30" rx="4"/><text x="887" y="261">7:merge</text></g>
+</svg>
